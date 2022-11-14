@@ -9,5 +9,8 @@ use Illuminate\Contracts\View\View;
 
 class HomepageController extends Controller
 {
+ public  function index(){
 
+     return view('front.homepage');
+ }
 }
