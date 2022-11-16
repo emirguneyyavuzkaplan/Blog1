@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Front\HomepageController;
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\HomepageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',function (){
-   return view('front.homepage') ;
-});
+Route::get('/',[HomepageController::class, 'index']);
