@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Front;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use App\Models\Category;
 
 class HomepageController extends Controller
 {
- public  function index(){
+    public  function index(){
 
-     return view('front.homepage');
- }
+        $data['categories']=Category::orderBy('name', 'desc')->get();
+        return view('front.homepage', $data);
+    }
 }
+

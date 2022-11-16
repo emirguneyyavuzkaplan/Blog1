@@ -12,7 +12,7 @@
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Start Bootstrap</a>
+                            <a href="#">Start Bootstrap</a>
                             on September 24, 2022
                         </p>
                     </div>
@@ -23,7 +23,7 @@
                         <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Start Bootstrap</a>
+                            <a href="#">Start Bootstrap</a>
                             on September 18, 2022
                         </p>
                     </div>
@@ -37,7 +37,7 @@
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Start Bootstrap</a>
+                            <a href="#">Start Bootstrap</a>
                             on August 24, 2022
                         </p>
                     </div>
@@ -51,7 +51,7 @@
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Start Bootstrap</a>
+                            <a href="#">Start Bootstrap</a>
                             on July 8, 2022
                         </p>
                     </div>
@@ -60,21 +60,5 @@
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase">Older Posts →</a></div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-header">
-                            Kategoriler
-                        </div>
-                        <div class="list-group">
-                            @foreach($categories as $category)
-                            <li class="list-group-item">
-                                <a href="#">{{$category->name}}</a> <span class="badge bg-primary float-end">12</span>
-                            </li>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-
-
+    @include('Front.widgets.categoryWidget')
         @endsection
