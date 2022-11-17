@@ -15,3 +15,4 @@ use App\Http\Controllers\Front\HomepageController;
 */
 
 Route::get('/',[HomepageController::class, 'index']);
+Route::get('/blog/{article_slug}','Front\Homepagecontroller@single')->name('single');

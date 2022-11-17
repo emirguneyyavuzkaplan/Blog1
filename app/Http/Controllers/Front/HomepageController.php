@@ -16,5 +16,11 @@ class HomepageController extends Controller
         $data['categories']=Category::orderBy('name', 'desc')->get();
         return view('front.homepage', $data);
     }
+    public function single($slug){
+
+
+        return view('front.single');
+
+    }
 }
 
