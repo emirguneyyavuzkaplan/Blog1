@@ -17,9 +17,10 @@ class HomepageController extends Controller
         return view('front.homepage', $data);
     }
     public function single($slug){
+        $data['article']=Article::whereSlug($slug)->first() ?? abort(403,'Error');
 
-
-        return view('front.single');
+        $data['categories']=Category::inRandomOrder()->get();
+        return view('front.single',$data);
 
     }
 }

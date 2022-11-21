@@ -11,5 +11,5 @@ class Category extends Model
 
         return $this->hasMany('App\Models\Article','category_id','id')->count();
     }
-    //Bağlanacagımız model bağlanacagımız sutun ve bağlancak id
+
 }
