@@ -16,12 +16,21 @@ class HomepageController extends Controller
         $data['categories']=Category::orderBy('name', 'desc')->get();
         return view('front.homepage', $data);
     }
-    public function single($slug){
-        $data['article']=Article::whereSlug($slug)->first() ?? abort(403,'Error');
-
+    public function single($category,$slug){
+        Category::whereSlug($category)->first() ?? abort(403, 'böyle kategori yok');
+        $article=Article::whereSlug($slug)->first() ?? abort(403,'error');
+        $article->increment('hit');
+        $data['article']=$article;
         $data['categories']=Category::inRandomOrder()->get();
         return view('front.single',$data);
 
     }
-}
+    public function category($slug){
+        $category = Category::whereSlug($slug)->first() ?? abort(403,'Böyle Bir Kategori yok');
+        $data['category']=$category;
+        $data['articles']=Article::where('category_id',$category->id)->orderBy('created_at','DESC')->get();
+        return view('front.category',$data);
 
+
+    }
+}

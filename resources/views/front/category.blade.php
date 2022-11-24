@@ -1,9 +1,10 @@
 @extends('front.layouts.master')
-@section('title','Anasayfa')
+@section('title',$category->name. 'Kategorisi ')
 @section('content')
 
 
     <div class="col-md-9 max-auto">
+        @if(count($articles)>0)
         <!-- Post preview-->
         @foreach($articles as $article)
             <div class="post-preview">
@@ -13,7 +14,7 @@
                     </h2>
                     <img src="{{$article->image}}"/>
                     <h3 class="post-subtitle">
-                    {!!Str::limit($article->content)!!}
+                        {!!Str::limit($article->content)!!}
 
                     </h3>
                 </a>
@@ -26,8 +27,13 @@
             @if(!$loop->last)
                 <hr>
             @endif
-
         @endforeach
+        @else
+            <div class="alert alert-danger">
+               <h1>Bu Kategoriye ait yazı bulanamadi</h1>
+
+            </div>
+        @endif
     </div>
     @include('Front.widgets.categoryWidget')
 @endsection
