@@ -5,7 +5,6 @@
 
     <div class="col-md-9 max-auto">
         @if(count($articles)>0)
-        <!-- Post preview-->
         @foreach($articles as $article)
             <div class="post-preview">
                 <a href="{{route('single',[$article->getCategory->slug,$article->slug])}}">
@@ -28,6 +27,7 @@
                 <hr>
             @endif
         @endforeach
+            {{$articles->links()}}
         @else
             <div class="alert alert-danger">
                <h1>Bu Kategoriye ait yazı bulanamadi</h1>

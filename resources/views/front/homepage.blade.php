@@ -4,30 +4,7 @@
 
 
     <div class="col-md-9 max-auto">
-        <!-- Post preview-->
-        @foreach($articles as $article)
-            <div class="post-preview">
-                <a href="{{route('single',[$article->getCategory->slug,$article->slug])}}">
-                    <h2 class="post-title">
-                        {{$article->title}}
-                    </h2>
-                    <img src="{{$article->image}}"/>
-                    <h3 class="post-subtitle">
-                    {!!Str::limit($article->content)!!}
-
-                    </h3>
-                </a>
-                <p class="post-meta"> Kategori :
-
-                    <a href="#">{{$article->getCategory->name}}</a>
-                    <span class="float-right">{{$article->created_at->diffForHumans() }} </span>
-                </p>
-            </div>
-            @if(!$loop->last)
-                <hr>
-            @endif
-
-        @endforeach
+        @include('front.widgets.articleList')
     </div>
     @include('Front.widgets.categoryWidget')
 @endsection
