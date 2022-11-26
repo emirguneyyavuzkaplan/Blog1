@@ -27,17 +27,18 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('homepage')}}">Home</a>
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('homepage')}}">Anasayfa</a>
                         </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="">{{route('page',$pages->slug)}}</a>
+                            </li>
+
+
                         <li class="nav-item">
-                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a>
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">İteşim</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
