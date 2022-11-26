@@ -29,11 +29,11 @@
                         <li class="nav-item">
                             <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('homepage')}}">Anasayfa</a>
                         </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="">{{route('page',$pages->slug)}}</a>
-                            </li>
-
+                        @foreach($page as $pages)
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('page',$page->slug)}}">{{route($page->title)}}</a>
+                        </li>
+                        @endforeach
 
                         <li class="nav-item">
                             <a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">İteşim</a>
