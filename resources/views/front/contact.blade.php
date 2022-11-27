@@ -3,9 +3,6 @@
 @section('image',asset('front/img/home-bg.jpg'))
 @section('content')
 
-
-
-
     <div class="col-lg-8 col-md-10 mx-auto">
 
         @if(session('success'))
@@ -19,8 +16,6 @@
                 {{$error}}
             </div>
         @endforeach
-
-
         <form name="sentMessage" id="contactForm" method="POST" action="{{route('contact.post')}}" novalidate>
             @csrf
             <div class="control-group">
