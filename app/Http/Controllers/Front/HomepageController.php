@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Article;
 use App\Models\Page;
+use App\Models\Contact;
 
 
 
@@ -41,28 +42,26 @@ class HomepageController extends Controller
     public function category($slug){
         $category = Category::whereSlug($slug)->first() ?? abort(403,'Böyle Bir Kategori yok');
         $data['category']=$category;
-        $data['articles']=Article::where('category_id',$category->id)->orderBy('created_at','DESC')->paginate(1);
-
-
+        $data['articles']=Article::where('category_id',$category->id)->orderBy('created_at','DESC')->paginate(2);
         return view('front.category',$data);
-
 
     }
     public  function page($slug){
-
        $page=Page::whereSlug($slug)->first() ?? abort(403,'boyle sayfa yok kardes');
        $data['page']=$page;
-
        return view('front.page',$data);
     }
     public  function contact(){
         return view('front.contact');
-
     }
     public function contactpost(Request $request){
+        $contact=new Contact;
+        $contact->name=$request->name;
+        $contact->email=$request->email;
+        $contact->topic=$request->topic;
+        $contact->massage=$request->massage;
+        $contact->save();
         print_r($request->post());
-
-
     }
 
 }
