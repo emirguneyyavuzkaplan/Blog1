@@ -3,15 +3,28 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomepageController;
+use App\Http\Controllers\Back\Dashboard;
+use App\Http\Controllers\Back\AuthController;
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Backend Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+
+*/
+Route::get('admin/panel',[Dashboard::class,'index'])->name('admin.dashboard');
+Route::get('admin/giris',[AuthController::class,'login'])->name('admin.login');
+Route::post('admin/giris',[AuthController::class,'loginPost'])->name('admin.login.post');
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Front Routes
+|--------------------------------------------------------------------------
+
 */
 
 Route::get('/',[HomepageController::class, 'index'])->name('homepage');
@@ -21,6 +34,9 @@ Route::post('/iletisim',[HomepageController::class,'contactpost'])->name('contac
 Route::get('/kategori/{category}',[HomepageController::class,'category'])->name('kategori');
 Route::get('/{category}/{article_slug}',[HomepageController::class,'single'])->name('single');
 Route::get('/{sayfa}',[HomepageController::class,'page'])->name('page');
+
+
+
 
 
 
