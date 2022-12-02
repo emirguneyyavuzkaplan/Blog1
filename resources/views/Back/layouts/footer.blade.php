@@ -29,15 +29,15 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Çıkıs yapmak istediğinizden emin misiniz?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">İptal</button>
+                <a class="btn btn-primary" href="{{route('admin.logout')}}">Çıkış yap</a>
             </div>
         </div>
     </div>
@@ -59,6 +59,12 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('back')}}/js/demo/chart-area-demo.js"></script>
 <script src="{{asset('back')}}/js/demo/chart-pie-demo.js"></script>
+
+
+<script src="{{asset('back')}}/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="{{asset('back')}}/vendor/datatables/dataTables.bootstrap4.min.js" ></script>
+<script src="{{asset('back')}}/js/demo/datatables-demo.js"></script>
+@yield('js')
 
 </body>
 

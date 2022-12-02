@@ -36,9 +36,20 @@
                 </div>
             </div>
         </footer>
-        <!-- Bootstrap core JS-->
-        <script src="{{asset('front')}}/https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="{{asset('front')}}/js/scripts.js"></script>
-    </body>
+<!-- Bootstrap core JavaScript-->
+<script src="{{asset('back')}}/vendor/jquery/jquery.min.js"></script>
+<script src="{{asset('back')}}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="{{asset('back')}}/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+
+<script src="{{asset('back')}}/js/sb-admin-2.min.js"></script>
+<script src="{{asset('back')}}/vendor/chart.js/Chart.min.js"></script>
+<!-- Page level plugins -->
+<script src="{{asset('back')}}/vendor/chart-area-demo.js"></script>
+<script src="{{asset('back')}}/js/demo/chart-pie-demo.js"></script>
+<script src="{{asset('back')}}/js/demo/datatables-demo.js"></script>
+</body>
 </html>
