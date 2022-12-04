@@ -18,7 +18,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="">Makale Başlığı</label>
-                    <input type="text" name="title" class="form-control" value="{{$article->title}}" id="" />
+                    <input type="text" name="title" class="form-control" value="{{$article->title}}"  />
                 </div>
                 <div class="form-group">
                     <label for="">Makale Kategori</label>

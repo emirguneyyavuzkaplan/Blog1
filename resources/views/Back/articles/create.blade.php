@@ -41,14 +41,16 @@
 @endsection
 @section('css')
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-    @endsection
+@endsection
 @section('js')
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
     <script>
-        $(document).ready(function (){
-            $('#editor').summernote({
-                'height':300
-            });
+        $(document).ready(function() {
+            $('#editor').summernote(
+                {
+                    'height':300
+                }
+            );
         });
     </script>
 @endsection
