@@ -6,6 +6,7 @@ use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\Back\Dashboard;
 use App\Http\Controllers\Back\AuthController;
 use App\Http\Controllers\Back\ArticleController;
+
 /*
 |--------------------------------------------------------------------------
 | Backend Routes
@@ -22,7 +23,7 @@ Route::post('giris',[AuthController::class,'loginPost'])->name('login.post');
 Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function (){
     Route::get('panel',[Dashboard::class,'index'])->name('dashboard');
     Route::resource('makaleler', ArticleController::class);
-    Route::get('/switch{id}',ArticleController::class,)->name('switch');
+    Route::get('/switch{id}',[ArticleController::class])->name('switch');
     Route::get('cikis',[AuthController::class,'logout'])->name('logout');
 
 });
