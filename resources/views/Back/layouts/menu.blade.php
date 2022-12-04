@@ -260,5 +260,7 @@
                     <a href="{{route('homepage')}}"  target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                             class="fas fa-download fa-sm text-white-50"></i> Siteyi Görüntüle</a>
                 </div>
-
-                <!-- Content Row -->
+                </div>
+            </div>
+        </div>
+</div>

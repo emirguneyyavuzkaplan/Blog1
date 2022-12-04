@@ -1,4 +1,6 @@
 </div>
+<!-- /.container-fluid -->
+
 </div>
 <!-- End of Main Content -->
 
@@ -65,7 +67,9 @@
 <script src="{{asset('back')}}/vendor/datatables/dataTables.bootstrap4.min.js" ></script>
 <script src="{{asset('back')}}/js/demo/datatables-demo.js"></script>
 @yield('js')
+@toastr_js
+@toastr_render
 
 </body>
 
-</html>
+</html></html>
