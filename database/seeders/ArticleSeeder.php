@@ -39,4 +39,3 @@ class ArticleSeeder extends Seeder
 
     }
 }
-

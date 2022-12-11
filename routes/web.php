@@ -15,14 +15,14 @@ use App\Http\Controllers\Back\ArticleController;
 */
 
 Route::prefix('admin')->name('admin.')->middleware('isLogin')->group(function (){
-Route::get('giris',[AuthController::class,'login'])->name('login');
-Route::post('giris',[AuthController::class,'loginPost'])->name('login.post');
+    Route::get('giris',[AuthController::class,'login'])->name('login');
+    Route::post('giris',[AuthController::class,'loginPost'])->name('login.post');
 
 
 });
 Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function (){
     Route::get('panel',[Dashboard::class,'index'])->name('dashboard');
-    //Route::get('makaleler/silinenler',ArticleController::class,'trashed')->name('trashed');
+    Route::get('makaleler/silinenler',[ArticleController::class,'trashed'])->name('trashed');
     Route::resource('makaleler', ArticleController::class);
     Route::get('/switch',[ArticleController::class,'switch'])->name('switch');
     Route::get('/deletearticle/{id}',[ArticleController::class,'delete'])->name('delete.article');

@@ -5,7 +5,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">@yield('title')
                 <span class="float-right">{{$articles->count()}} makale bulundu.</span>
-            <a href="{{route('admin.makaleler.index')}}" class="btn btn-primary btn-sm">  Aktif Makaleler</a>
+                <a href="{{route('admin.makaleler.index')}}" class="btn btn-primary btn-sm">  Aktif Makaleler</a>
             </h6>
         </div>
         <div class="card-body">
@@ -24,23 +24,23 @@
 
                     <tbody>
                     @foreach($articles as $article)
-                    <tr></tr>
-                    <td>
-                        <img src="{{$article->image}}" width="200">
-                    </td>
-                    <td>{{$article->title}}</td>
-                    <td>{{$article->getCategory->name}}</td>
-                    <td>{{$article->hit}}</td>
-                    <td>{{$article->created_at->diffForHumans()}}</td>
+                        <tr></tr>
+                        <td>
+                            <img src="{{$article->image}}" width="200">
+                        </td>
+                        <td>{{$article->title}}</td>
+                        <td>{{$article->getCategory->name}}</td>
+                        <td>{{$article->hit}}</td>
+                        <td>{{$article->created_at->diffForHumans()}}</td>
 
-                    <td>
+                        <td>
 
-                        <a href="{{route('admin.recover.article',$article->id)}}" title="Silmekten kurtar" class="btn btn-sm btn-primary"><i class="fa fa-times"></i> </a>
-                        <a href="{{route('admin.hard.delete.article',$article->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> </a>
-                    </td>
+                            <a href="{{route('admin.recover.article',$article->id)}}" title="Silmekten kurtar" class="btn btn-sm btn-primary"><i class="fa fa-times"></i> </a>
+                            <a href="{{route('admin.hard.delete.article',$article->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> </a>
+                        </td>
 
 
-                    </tr>
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>

@@ -5,7 +5,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">@yield('title')
                 <span class="float-right">{{$articles->count()}} makale bulundu.</span>
-            <a href="{{route('admin.trashed.article')}}" class="btn btn-warning btn-sm"><i class="fa fa-trash"></i>  Silinen makaleler</a>
+                <a href="{{route('admin.trashed')}}" class="btn btn-warning btn-sm"><i class="fa fa-trash"></i>  Silinen makaleler</a>
             </h6>
         </div>
         <div class="card-body">
@@ -25,24 +25,24 @@
 
                     <tbody>
                     @foreach($articles as $article)
-                    <tr></tr>
-                    <td>
-                        <img src="{{$article->image}}" width="200">
-                    </td>
-                    <td>{{$article->title}}</td>
-                    <td>{{$article->getCategory->name}}</td>
-                    <td>{{$article->hit}}</td>
-                    <td>{{$article->created_at->diffForHumans()}}</td>
-                   <input  id="switch" data="{{$article->id}}" type="checkbox" data-on="Aktif" data-off="Pasif" data-onstyle="success"  data-offstyle="danger" @if($article->status==1) checked @endif data-toggle="toogle">
+                        <tr></tr>
+                        <td>
+                            <img src="{{$article->image}}" width="200">
+                        </td>
+                        <td>{{$article->title}}</td>
+                        <td>{{$article->getCategory->name}}</td>
+                        <td>{{$article->hit}}</td>
+                        <td>{{$article->created_at->diffForHumans()}}</td>
+                        <input  id="switch" data="{{$article->id}}" type="checkbox" data-on="Aktif" data-off="Pasif" data-onstyle="success"  data-offstyle="danger" @if($article->status==1) checked @endif data-toggle="toogle">
 
-                    <td>
-                        <a target="_blank" href="{{route('single',[$article->getCategory->name,$article->title]}}" title="Görüntüle" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> </a>
-                        <a href="{{route('admin.makaleler.edit',$article->id)}}" title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> </a>
-                        <a href="{{route('admin.delete.article',$article->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> </a>
+                        <td>
+                            <a href="{{route('single',[$article->getCategory->slug,$article->slug])}}" title="Görüntüle" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> </a>
+                            <a href="{{route('admin.makaleler.edit',$article->id)}}" title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> </a>
+                            <a href="{{route('admin.delete.article',$article->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> </a>
 
-                    </td>
+                        </td>
 
-                    </tr>
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>
@@ -61,9 +61,9 @@
 
     <script>
         $(function() {
-           $('#switch').change(function (){
-               alert('Toggle:'+$(this).prop('checked'));
-           })
+            $('#switch').change(function (){
+                alert('Toggle:'+$(this).prop('checked'));
+            })
         })
     </script>
 @endsection
