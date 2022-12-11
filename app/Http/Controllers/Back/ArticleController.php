@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -52,7 +53,7 @@ class ArticleController extends Controller
         $article->slug=str_slug($request->title);
 
         if($request->hasFile('image')){
-            $imageName=str_slug($request->title).'.'.$request->image->getClientOriginalExtension();
+            $imageName=Str::slug($request->title).'.'.$request->image->getClientOriginalExtension();
             $request->image->move(public_path('uploads'),$imageName);
             $article->image='uploads/'.$imageName;
         }
@@ -103,10 +104,10 @@ class ArticleController extends Controller
         $article->title=$request->title;
         $article->category_id=$request->category;
         //$article->content=$request->content;
-        $article->slug=str_slug($request->title);
+        $article->slug=Str::slug($request->title);
 
         if($request->hasFile('image')){
-            $imageName=str_slug($request->title).'.'.$request->image->getClientOriginalExtension();
+            $imageName=Str::slug($request->title).'.'.$request->image->getClientOriginalExtension();
             $request->image->move(public_path('uploads'),$imageName);
             $article->image='uploads/'.$imageName;
         }

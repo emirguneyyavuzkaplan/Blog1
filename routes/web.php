@@ -7,6 +7,7 @@ use App\Http\Controllers\Back\Dashboard;
 use App\Http\Controllers\Back\AuthController;
 use App\Http\Controllers\Back\ArticleController;
 use App\Http\Controllers\Back\CategoryController;
+use App\Http\Controllers\Back\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,17 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
     Route::post('/kategoriler/delete',[CategoryController::class,'delete'])->name('category.delete');
     Route::get('/kategori/status',[CategoryController::class,'switch'])->name('category.switch');
     Route::get('/kategori/getData',[CategoryController::class,'getData'])->name('category.getdata');
+
+    //PAGE'S ROUTE'S
+    Route::get('/sayfalar',[PageController::class,'index'])->name('page.index');
+    Route::get('/sayfalar/olustur',[PageController::class,'create'])->name('page.create');
+    Route::post('/sayfalar/olustur',[PageController::class,'post'])->name('page.create.post');
+    Route::get('/sayfa/switch',[PageController::class,'switch'])->name('page.switch');
+
+
+
+
+
     //
     Route::get('cikis',[AuthController::class,'logout'])->name('logout');
 
