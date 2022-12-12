@@ -44,8 +44,13 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
     //PAGE'S ROUTE'S
     Route::get('/sayfalar',[PageController::class,'index'])->name('page.index');
     Route::get('/sayfalar/olustur',[PageController::class,'create'])->name('page.create');
+    Route::get('/sayfalar/guncelle/{id}',[PageController::class,'update'])->name('page.edit');
+    Route::post('/sayfalar/guncelle/{id}',[PageController::class,'updatePost'])->name('page.edit.post');
     Route::post('/sayfalar/olustur',[PageController::class,'post'])->name('page.create.post');
     Route::get('/sayfa/switch',[PageController::class,'switch'])->name('page.switch');
+    Route::get('sayfa/sil/{id}',[PageController::class,'delete'])->name('page.delete');
+    Route::get('/sayfa/siralama',[PageController::class,'orders'])->name('page.orders');
+    //Route::get('/sayfa/siralama','Back\PageController@orders')->name('page.orders');
 
 
 
