@@ -1,5 +1,5 @@
 @extends('back.layouts.master')
-@section('title',$article->title.'makalesini güncelle')
+@section('title',$page->title.'sayfasını güncelle')
 @section('content')
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -13,33 +13,24 @@
                     @endforeach
                 </div>
             @endif
-            <form method="post" action="{{route('admin.makaleler.update',$article->id)}}" enctype="multipart/form-data">
-                @method('PUT')
+            <form method="post" action="{{route('admin.page.edit.post',$page->id)}}" enctype="multipart/form-data">
+
                 @csrf
                 <div class="form-group">
                     <label for="">Makale Başlığı</label>
-                    <input type="text" name="title" class="form-control" value="{{$article->title}}"  />
+                    <input type="text" name="title" class="form-control" value="{{$page->title}}"  />
                 </div>
-                <div class="form-group">
-                    <label for="">Makale Kategori</label>
-                    <select name="category" class="form-control" id="">
 
-                        <option value="">Seçim yapınız</option>
-                        @foreach ($categories as $category)
-                            <option @if($article->category_id==$category->id) selected @endif value="{{$category->id}}">{{$category->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
 
                 <div class="form-group">
                     <label for="">Makale Fotoğrafı</label>
-                    <img src="{{asset($article->image)}}" class="rounded" width="400"/>
+                    <img src="{{asset($page->image)}}" class="rounded" width="400"/>
                     <input type="file" name="image" class="form-control" required />
                 </div>
 
                 <div class="form-group">
                     <label for="">Makale İçeriği</label>
-                    <textarea name="content" class="form-control" id="editor" >{!!$article->content !!}</textarea>
+                    <textarea name="content" class="form-control" id="editor" >{!!$page->content !!}</textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Makale oluştur</button>

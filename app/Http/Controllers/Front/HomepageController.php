@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Validator;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 //Models
 use App\Models\Category;
 use App\Models\Article;
@@ -52,7 +53,7 @@ class HomepageController extends Controller
        $data['page']=$page;
        return view('front.page',$data);
     }
-    public  function contact(){
+    public function contact(){
         return view('front.contact');
     }
     public function contactpost(Request $request){
@@ -64,19 +65,29 @@ class HomepageController extends Controller
             'message'=>'required|min:10'
         ];
         $validate=Validator::make($request->post(),$rules);
-        if ($validate->fails()){
-            return  redirect()->route('contact')->withErrors($validate)->withInput();
 
+        if($validate->fails()){
+            return redirect()->route('contact')->withErrors($validate)->withInput();
         }
 
+        //Mail::send([],[], function($message) use($request){
+            //$message->from('iletisim@blogsitesi.com','Blog Sitesi');
+            //$message->to('emirguneyyavuzkaplan@hotmail.com');
+            //$message->setBody(' Mesajı Gönderen :'.$request->name.'<br />
+                    //Mesajı Gönderen Mail :'.$request->email.'<br />
+                    //Mesaj Konusu : '.$request->topic.'<br />
+                    //Mesaj :'.$request->message.'<br /><br />
+                    //Mesaj Gönderilme Tarihi : '.now().'','text/html');
+            //$message->subject($request->name. ' iletişimden mesaj gönderdi!');
+        //});
 
-        $contact= new Contact;
-        $contact->name=$request->name;
-        $contact->email=$request->email;
-        $contact->topic=$request->topic;
-        $contact->message=$request->message;
+         $contact = new Contact;
+         $contact->name=$request->name;
+         $contact->email=$request->email;
+         $contact->topic=$request->topic;
+       $contact->message=$request->message;
         $contact->save();
-       return redirect()->route('contact')->with('success','Mesajınız bize iletildi tesekkür ederiz ');
+        return redirect()->route('contact')->with('success','Mesajınız bize iletildi. Teşekkür ederiz!');
     }
 
 }
