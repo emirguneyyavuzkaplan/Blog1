@@ -30,7 +30,7 @@ class HomepageController extends Controller
 
 
     public  function index(){
-        $data['articles']=Article::orderBy('created_at','DESC')->paginate(2);
+        $data['articles']=Article::where('status',1)->orderBy('created_at','DESC')->paginate(5);
         $data['articles']->withPath(url('sayfa'));
 
 
