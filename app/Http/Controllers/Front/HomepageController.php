@@ -75,6 +75,7 @@ class HomepageController extends Controller
             return redirect()->route('contact')->withErrors($validate)->withInput();
         }
 
+
         //Mail::send([],[], function($message) use($request){
             //$message->from('iletisim@blogsitesi.com','Blog Sitesi');
             //$message->to('emirguneyyavuzkaplan@hotmail.com');
